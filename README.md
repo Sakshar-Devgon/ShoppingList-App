@@ -21,12 +21,13 @@ A simple and interactive **Shopping List App** built using **Jetpack Compose** i
 
 ---
 
-## Video of App
+## Screenshots
 
-
-
+![Screenshot 1](https://github.com/Sakshar-Devgon/ShoppingList-App/blob/master/Screenshot%202024-12-16%20193910.png?raw=true)
+![Screenshot 2](https://github.com/Sakshar-Devgon/ShoppingList-App/blob/master/Screenshot%202024-12-16%20193850.png?raw=true)
 
 ---
+
 ## Future Updates
 I will continue to update and enhance this project by adding more features, improving the UI, and optimizing the code. Stay tuned for future updates!
 
