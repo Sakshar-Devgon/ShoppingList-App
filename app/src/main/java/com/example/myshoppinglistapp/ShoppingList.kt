@@ -150,35 +150,47 @@ fun ShoppingListApp() {
 }
 
 @Composable
-fun ShoppingItemEditor(item: ShoppingItem,onEditComplete: (String , Int) -> Unit) {
+fun ShoppingItemEditor(item: ShoppingItem, onEditComplete: (String, Int) -> Unit) {
     var editedName by remember { mutableStateOf(item.name) }
-    var editedQuantity by remember { mutableStateOf(item.quantity.toString()) }
+    var editedQuantity by remember { mutableStateOf(item.quantity.toString()) } // Added for quantity
     var isEditing by remember { mutableStateOf(item.isEditing) }
 
-    Row (modifier = Modifier.fillMaxWidth()
-                    .background(Color.White).padding(8.dp),
-                     horizontalArrangement = Arrangement.SpaceEvenly
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White)
+            .padding(8.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Column {
+            // BasicTextField for editing name
             BasicTextField(
                 value = editedName,
-                onValueChange = {editedName = it },
+                onValueChange = { editedName = it },
+                singleLine = true,
+                modifier = Modifier.wrapContentSize().padding(8.dp)
+            )
+
+            // BasicTextField for editing quantity
+            BasicTextField(  // This is the new field for quantity
+                value = editedQuantity,
+                onValueChange = { editedQuantity = it },
                 singleLine = true,
                 modifier = Modifier.wrapContentSize().padding(8.dp)
             )
         }
 
         Button(
-            onClick ={
+            onClick = {
                 isEditing = false
-                onEditComplete(editedName, editedQuantity.toIntOrNull()?: 1)
+                onEditComplete(editedName, editedQuantity.toIntOrNull() ?: 1) // Pass both name and quantity
             }
         ) {
             Text("Save")
         }
     }
-
 }
+
 
 
 @Composable
